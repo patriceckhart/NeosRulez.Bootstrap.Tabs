@@ -1,6 +1,6 @@
-# Tabs for NeosRulez.Boostrap
+# Tabs for [NeosRulez.Boostrap](https://github.com/patriceckhart/NeosRulez.Bootstrap)
 
-This package provides the Bootstrap Tab element for NeosRulez.Bootstrap.
+This package provides the Bootstrap Tab element for [NeosRulez.Bootstrap](https://github.com/patriceckhart/NeosRulez.Bootstrap).
 
 
 ## Installation
