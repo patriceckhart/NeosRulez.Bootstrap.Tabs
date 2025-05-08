@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="NeosRulez.Bootstrap.Tabs" source-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label" xml:space="preserve">
+				<source>Tab Container</source>
+			</trans-unit>
+            <trans-unit id="content.inspector.groups.tabs" xml:space="preserve">
+				<source>Tab Container</source>
+			</trans-unit>
+            <trans-unit id="properties.alignment" xml:space="preserve">
+				<source>Ausrichtung</source>
+			</trans-unit>
+            <trans-unit id="properties.alignment.selectBoxEditor.values.horizontal" xml:space="preserve">
+                <source>Horizontal</source>
+            </trans-unit>
+            <trans-unit id="properties.alignment.selectBoxEditor.values.vertical" xml:space="preserve">
+                <source>Vertikal</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

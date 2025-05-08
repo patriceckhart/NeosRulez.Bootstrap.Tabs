@@ -1,0 +1,20 @@
+prototype(NeosRulez.Bootstrap.Tabs:Content.Tab) < prototype(Neos.Neos:ContentComponent) {
+
+    items = ${q(node.parent).children('[instanceof NeosRulez.Bootstrap.Tabs:Content.Tab]').filter('[_hiddenInIndex=false]').get()}
+    @context.firstItem = ${this.items && Array.length(this.items) > 0 ? this.items[0] : false}
+
+    nodes = Neos.Neos:ContentCollection {
+        @context.node = ${node}
+        attributes {
+            id = ${'pills-' + node.identifier}
+            class = ${'tab-pane fade' + (firstItem.identifier == node.identifier ? ' show active' : '')}
+            role= ${'tabpanel'}
+            aria-labelledby = ${'pills-' + node.identifier + '-tab'}
+            tabindex = ${'0'}
+        }
+    }
+
+    renderer = afx`
+        {props.nodes}
+    `
+}

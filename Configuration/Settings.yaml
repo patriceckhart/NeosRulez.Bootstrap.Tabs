@@ -1,0 +1,19 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        NeosRulez.Bootstrap.Tabs: true
+    userInterface:
+      translation:
+        autoInclude:
+          NeosRulez.Bootstrap.Tabs:
+            - 'NodeTypes/*'
+            - 'NodeTypes/Content/*'
+    nodeTypes:
+      groups:
+        tabs:
+          position: 'end'
+          label: i18n
+        tab:
+          position: 'end'
+          label: i18n

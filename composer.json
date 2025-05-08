@@ -1,0 +1,19 @@
+{
+    "description": "Extends NeosRulez.Bootstrap with a Tab Content Element.",
+    "type": "neos-package",
+    "name": "neosrulez/bootstrap-tabs",
+    "require": {
+        "neosrulez/bootstrap": "^6.0",
+        "sitegeist/stagefog": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "NeosRulez\\Bootstrap\\Tabs\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "NeosRulez.Bootstrap.Tabs"
+        }
+    }
+}

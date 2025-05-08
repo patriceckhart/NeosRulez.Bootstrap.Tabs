@@ -1,0 +1,52 @@
+prototype(NeosRulez.Bootstrap.Tabs:Content.Tabs) < prototype(Neos.Neos:ContentComponent) {
+
+    alignment = ${q(node).property('alignment')}
+
+    nodes = Neos.Neos:ContentCollection {
+        @context.node = ${node}
+        attributes {
+            id = ${'pills-' + node.identifier}
+            class = ${'tab-content'}
+        }
+    }
+
+    items = ${q(node).children('[instanceof NeosRulez.Bootstrap.Tabs:Content.Tab]').filter('[_hiddenInIndex=false]').get()}
+
+    renderer = afx`
+        <NeosRulez.Bootstrap:Component.AbstractContent>
+            <Neos.Fusion:Fragment @if={props.alignment == 'horizontal'} >
+                <ul @if={props.items && Array.length(props.items) > 0} class="nav nav-pills mb-3" id={'pills-tabnav-' + node.identifier} role="tablist">
+                    <Neos.Fusion:Loop items={props.items} >
+                        <NeosRulez.Bootstrap.Tabs:Content.Tab.NavItem items={props.items} item={item} active={itemKey == 0} />
+                    </Neos.Fusion:Loop>
+                </ul>
+                {props.nodes}
+            </Neos.Fusion:Fragment>
+            <Neos.Fusion:Fragment @if={props.alignment == 'vertical'} >
+                <div class="d-flex align-items-start">
+                    <div @if={props.items && Array.length(props.items) > 0} class="nav flex-column nav-pills me-3" id={'v-pills-tab-' + node.identifier} role="tablist" aria-orientation="vertical">
+                        <Neos.Fusion:Loop items={props.items} >
+                            <NeosRulez.Bootstrap.Tabs:Content.Tab.NavItem items={props.items} item={item} active={itemKey == 0} />
+                        </Neos.Fusion:Loop>
+                    </div>
+                    {props.nodes}
+                </div>
+            </Neos.Fusion:Fragment>
+        </NeosRulez.Bootstrap:Component.AbstractContent>
+    `
+}
+
+prototype(NeosRulez.Bootstrap.Tabs:Content.Tab.NavItem) < prototype(Neos.Fusion:Component) {
+
+    id = ${this.item.identifier}
+    title = ${q(this.item).property('title')}
+    disabled = ${q(this.item).property('disabled')}
+    alignment = ${q(this.item.parent).property('alignment')}
+
+    renderer = afx`
+        <li @if={props.alignment == 'horizontal'} class="nav-item" role="presentation">
+            <button class={'nav-link' + (props.active ? ' active' : '')} id={'pills-' + props.id + '-tab'} data-bs-toggle="pill" data-bs-target={'#pills-' + props.id} type="button" role="tab" aria-controls={'pills-' + props.id} aria-selected={props.active ? 'true' : false} disabled={props.disabled} >{props.title}</button>
+        </li>
+        <button @if={props.alignment == 'vertical'} class={'nav-link' + (props.active ? ' active' : '')} id={'pills-' + props.id + '-tab'} data-bs-toggle="pill" data-bs-target={'#pills-' + props.id} type="button" role="tab" aria-controls={'pills-' + props.id} aria-selected={props.active ? 'true' : false} disabled={props.disabled} >{props.title}</button>
+    `
+}
